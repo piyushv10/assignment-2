@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        h3 {
+            color: #007bff;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        #fieldsContainer, #dataTable {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Product Display App</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Import Products</h3>
+                <label for="fileInput">Step 1: Select File</label>
+                <input type="file" id="fileInput" class="form-control" accept=".json, .csv">
+                
+                <label for="fileType">Step 2: Specify Format</label>
+                <select id="fileType" class="form-control">
+                    <option value="csv">CSV</option>
+                    <option value="json">JSON</option>
+                </select>
+                
+                <label for="characterEncoding">Character Encoding:</label>
+                <select id="characterEncoding" class="form-control">
+                    <option value="utf-8">UTF-8</option>
+                    <!-- Add other encoding options if needed -->
+                </select>
+
+                <label for="delimiter">Delimiter:</label>
+                <input type="text" id="delimiter" class="form-control" placeholder="e.g., comma">
+
+                <div class="form-check">
+                    <input type="checkbox" id="hasHeader" class="form-check-input">
+                    <label for="hasHeader" class="form-check-label">Has Header</label>
+                </div>
+
+                <button id="importButton" class="btn btn-primary mt-3">Import Data</button>
+                <div id="fieldsContainer">
+                    <!-- Display handling options go here -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Display Data</h3>
+                <button id="showDataButton" class="btn btn-success">Show Data</button>
+                <table id="dataTable" class="table mt-3">
+                    <!-- Table headers and data go here -->
+                </table>
+                <label for="displayedFields" class="mt-2">Fields to be Displayed:</label>
+                <select multiple class="form-control" id="displayedFields"></select>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
